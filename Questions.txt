@@ -1,1 +1,17 @@
+Questions:
+
+Count the total number of orders?
+Calculate the total revenue?
+Identify the highyest priced Pizza?
+Identify the most common pizza ordered?
+Identify the most common pizza size ordered?
+Identify the most common pizza types along with quantity?
+Find the total quantity of each pizza?
+Determine the distribution of orders by hour of the day?
+Find the category wise distribution of pizzas?
+Group the orders by date and calculate the average number of pizzas ordered per day?
+Determine the top 3 most ordered piza based on Revenue?
+Calculate the percentage distribution of each pizza type to total revenue?
+Analyze the cumulative revenue generated over time?
+Determine the top 3 most ordered pizza types based on revenue for each pizza?
 
