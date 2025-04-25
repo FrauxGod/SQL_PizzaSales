@@ -44,7 +44,8 @@ ORDER BY Pizza_count DESC;
 
 
 --Identify the most common pizza types along with quantity?
-SELECT TOP 5 pizza_types.name, SUM(order_details.quantity) AS Most_common FROM pizza_types
+SELECT TOP 5 pizza_types.name, SUM(order_details.quantity) AS Most_common 
+FROM pizza_types
 JOIN pizzas
 ON pizza_types.pizza_type_id = pizzas.pizza_type_id
 JOIN order_details
@@ -54,7 +55,8 @@ ORDER BY Most_common DESC;
 
 
 --Find the total quantity of each pizza?
-SELECT pizza_types.category, SUM(order_details.quantity) AS Total_Quantity FROM pizza_types
+SELECT pizza_types.category, SUM(order_details.quantity) AS Total_Quantity 
+FROM pizza_types
 JOIN pizzas
 On pizza_types.pizza_type_id = pizzas.pizza_type_id
 JOIN order_details
@@ -64,7 +66,8 @@ ORDER BY Total_Quantity DESC;
 
 
 --Determine the distribution of orders by hour of the day?
-SELECT DATEPART(HOUR, orders.time) AS Order_hour, COUNT (orders.order_id) AS Count_of_order FROM orders
+SELECT DATEPART(HOUR, orders.time) AS Order_hour, COUNT (orders.order_id) AS Count_of_order 
+FROM orders
 GROUP BY DATEPART(HOUR, orders.time)
 ORDER BY DATEPART(HOUR, orders.time) DESC
 ;
@@ -127,8 +130,10 @@ GROUP BY orders.date) AS totals
 --Determine the top 3 most ordered pizza types based on revenue for each pizza?
 SELECT category, name, Revenue
 FROM
-(SELECT category, name, REVENUE, RANK () over (PARTITION BY category ORDER BY REVENUE DESC) AS Ranks FROM
-(SELECT pizza_types.category, pizza_types.name, SUM(order_details.quantity*pizzas.price) AS REVENUE FROM pizza_types
+(SELECT category, name, REVENUE, RANK () over (PARTITION BY category ORDER BY REVENUE DESC) AS Ranks 
+FROM
+(SELECT pizza_types.category, pizza_types.name, SUM(order_details.quantity*pizzas.price) AS REVENUE 
+FROM pizza_types
 JOIN pizzas
 ON pizza_types.pizza_type_id = pizzas.pizza_type_id
 JOIN order_details
